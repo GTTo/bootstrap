@@ -361,10 +361,10 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
         select:'&'
       },
       replace:true,
-      templateUrl:'template/typeahead/typeahead-popup.html',
+		templateUrl: function (element, attrs) {
+			return attrs.templateUrl || 'template/typeahead/typeahead-popup.html';
+	  },
       link:function (scope, element, attrs) {
-
-        scope.templateUrl = attrs.templateUrl;
 
         scope.isOpen = function () {
           return scope.matches.length > 0;
